@@ -6,7 +6,7 @@
 #    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 23:08:40 by fbosch            #+#    #+#              #
-#    Updated: 2023/05/29 21:59:32 by fbosch           ###   ########.fr        #
+#    Updated: 2023/05/31 01:17:18 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,18 +35,24 @@ ft_print_integer_signed.c ft_print_unsigned.c ft_print_hexa.c
 
 SRC_GNL = get_next_line_bonus.c get_next_line_utils_bonus.c
 
-OBJ = $(SRC_LIBFT:%.c=%.o) $(SRC_LIBFT_BONUS:%.c=%.o) $(SRC_PRINTF:%.c=%.o)\
-$(SRC_GNL:%.c=%.o)\
+BUILD_DIR = .build/
+
+OBJ = $(SRC_LIBFT:%.c=$(BUILD_DIR)%.o) $(SRC_LIBFT_BONUS:%.c=$(BUILD_DIR)%.o)\
+$(SRC_PRINTF:%.c=$(BUILD_DIR)%.o) $(SRC_GNL:%.c=$(BUILD_DIR)%.o)
 
 INCLUDE_DIR = ../include
 
 DEPENDS = ../include/libft.h
+DEP = $(OBJ:%.o=%.d)
 
 NAME = libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DIR)
 LIB = ar rc
+
+CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DIR)
+DEPFLAGS = -MMD -MP
+DIR_DUP = mkdir -p $(@D)
 
 EXECUTABLES = *.out *.exe
 
@@ -56,20 +62,28 @@ RM = /bin/rm -f
 
 all: $(NAME)
 
+### CREATE LIBRARY ###
 $(NAME): $(OBJ)
 	@printf "$(COLOUR_GREEN)Linking...\n$(COLOUR_END)"
-	$(LIB) $(NAME) $(OBJ)
+	@$(LIB) $(NAME) $(OBJ)
+	@printf "$(LIB) $(NAME) $(patsubst $(BUILD_DIR)%,%,$(OBJ))\n"
 	@printf "$(COLOUR_GREEN)Compilation libft done!\xE2\x9C\x85\n$(COLOUR_END)"
+
+### CREATE ALL OBJECT FILES FROM SOURCE FILES ###
+$(BUILD_DIR)%.o: %.c
+	@printf "$(COLOUR_YELLOW)Compiling... $(COLOUR_END)$(patsubst $(BUILD_DIR)%,%,$@)\n"
+	@$(DIR_DUP)
+	@$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
+
+-include $(DEP)
 
 clean:
 	@printf "$(COLOUR_RED)Deleting...\xE2\x9D\x97\\xE2\x9D\x97\\xE2\x9D\x97\n$(COLOUR_END)"
-	$(RM) $(OBJ) $(EXECUTABLES)
+	$(RM) $(OBJ) $(DEP) $(EXECUTABLES)
+
 fclean: clean
 	@printf "$(COLOUR_RED)Deleting...\xE2\x9D\x97\\xE2\x9D\x97\\xE2\x9D\x97\n$(COLOUR_END)"
-	$(RM) $(NAME)
+	$(RM) $(NAME)		
+	$(RM) -r $(BUILD_DIR)
 
 re: fclean all
-
-%.o: %.c $(DEPENDS)
-	@printf "$(COLOUR_YELLOW)Compiling... $(COLOUR_END)"
-	$(CC) $(CFLAGS) -c $<  -o $(<:.c=.o)
