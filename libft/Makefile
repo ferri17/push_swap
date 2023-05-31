@@ -6,7 +6,7 @@
 #    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 23:08:40 by fbosch            #+#    #+#              #
-#    Updated: 2023/05/31 01:17:18 by fbosch           ###   ########.fr        #
+#    Updated: 2023/05/31 14:27:23 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ $(SRC_PRINTF:%.c=$(BUILD_DIR)%.o) $(SRC_GNL:%.c=$(BUILD_DIR)%.o)
 
 INCLUDE_DIR = ../include
 
-DEPENDS = ../include/libft.h
 DEP = $(OBJ:%.o=%.d)
 
 NAME = libft.a
