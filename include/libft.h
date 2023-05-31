@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:12:44 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/29 21:23:54 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/31 19:37:20 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,9 @@ int	ft_print_string(char *str);
 int	ft_print_pointer(unsigned long ptr);
 int	ft_print_integer_signed(int nb);
 int	ft_print_hexa(unsigned int nb, int is_upper);
+
+/* #############               EXTRA FUNCTIONS              ################
+############################################################################ */
+int	ft_strcmp(const char *s1, const char *s2);
 
 #endif

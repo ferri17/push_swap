@@ -6,7 +6,7 @@
 #    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 19:36:01 by fbosch            #+#    #+#              #
-#    Updated: 2023/05/31 15:35:49 by fbosch           ###   ########.fr        #
+#    Updated: 2023/05/31 17:54:43 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME = push_swap
 LIBFT = libft.a
 LIBFT_DIR = libft/
 
-SRC = main.c
+SRC = push_swap.c
 SRC_DIR = src/
 
 INCLUDE_DIR = include/
