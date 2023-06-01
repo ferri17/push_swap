@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:21:20 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/31 22:16:41 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/01 02:47:13 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ int	check_int(char *s_num)
 	return (0);
 }
 
-int	check_duplicates(int argc, char **argv, int index)
+int	check_duplicates(int len, char **argv, int index)
 {
 	int j;
 
 	j = index + 1;
-	while (j < argc)
+	while (j < len)
 	{
 		if (compare_numbers(argv[index], argv[j]) == 0)
 			return (-1);
@@ -59,30 +59,70 @@ int	check_duplicates(int argc, char **argv, int index)
 	}
 	return (0);
 }
-int	check_arguments(int argc, char **argv)
+void	free_memory_array_string(char **arr, int len)
 {
 	int i;
-	int j;
 
-	i = 1;
-	while (i < argc)
+	if (!arr)
+		return ;
+	i = 0;
+	while (i < len)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free (arr);
+}
+
+int	check_words(char **words, int len)
+{
+	int i;
+	int	j;
+
+	i = 0;
+	while (i < len)
 	{
 		j = 0;
-		if (argv[i][j] == '+' || argv[i][j] == '-')
+		if (words[i][j] == '+' || words[i][j] == '-')
 			j++;
-		if (argv[i][j] == '\0')
+		if (words[i][j] == '\0')
 			return (-1);
-		while (argv[i][j])
+		while (words[i][j])
 		{
-			if (argv[i][j] >= '0' && argv[i][j] <= '9')
+			if (words[i][j] >= '0' && words[i][j] <= '9')
 				j++;
 			else
 				return (-1);
 		}
-		if (check_duplicates(argc, argv, i) < 0 || check_int(argv[i]) < 0)
+		if (check_duplicates(len, words, i) < 0 || check_int(words[i]) < 0)
 			return (-1);
 		i++;
 	}
+	return (0);
+}
+int	check_arguments(int argc, char **argv)
+{
+	char **words;
+	int len;
+	int status;
+
+	words = NULL;
+	len = 0;
+	if (argc == 2)
+	{
+		words = ft_split (argv[1], ' ');
+		if (!words)
+			return (-1);
+		len = 0;
+		while (words[len])
+			len++;
+		status = check_words(words, len);
+	}
+	else 
+		status = check_words(++argv, argc - 1);
+	free_memory_array_string(words, len);
+	if (status < 0)
+		return (-1);
 	return (0);
 }
 #include <stdio.h>
