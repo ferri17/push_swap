@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
+#    By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 19:36:01 by fbosch            #+#    #+#              #
-#    Updated: 2023/06/01 02:48:30 by fbosch           ###   ########.fr        #
+#    Updated: 2023/06/01 12:14:53 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME = push_swap
 LIBFT = libft.a
 LIBFT_DIR = libft/
 
-SRC = main.c
+SRC = main.c argument_checker.c free_memory.c
 SRC_DIR = src/
 
 INCLUDE_DIR = include/
@@ -65,6 +65,9 @@ $(BUILD_DIR)%.o: $(SRC_DIR)%.c $(DEPENDS) $(LIBFT_DIR)$(LIBFT)
 
 -include $(DEP)
 
+norm:
+	norminette -R CheckForbiddenSourceHeader
+	
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	@printf "$(COLOUR_RED)Deleting...\xE2\x9D\x97\\xE2\x9D\x97\\xE2\x9D\x97\n$(COLOUR_END)"

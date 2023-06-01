@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:12:44 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/31 19:37:20 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/01 12:04:26 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,17 @@ size_t	ft_strlcpy_gnl(char *dst, const char *src, size_t dstsize);
 /* ################                PRINTF                ###################
 ############################################################################ */
 
-int	ft_printf(const char *str, ...);
-int	ft_print_unsigned(unsigned int nb);
-int	ft_putstr(char *str);
-int	ft_print_char(int c);
-int	ft_print_string(char *str);
-int	ft_print_pointer(unsigned long ptr);
-int	ft_print_integer_signed(int nb);
-int	ft_print_hexa(unsigned int nb, int is_upper);
+int		ft_printf(const char *str, ...);
+int		ft_print_unsigned(unsigned int nb);
+int		ft_putstr(char *str);
+int		ft_print_char(int c);
+int		ft_print_string(char *str);
+int		ft_print_pointer(unsigned long ptr);
+int		ft_print_integer_signed(int nb);
+int		ft_print_hexa(unsigned int nb, int is_upper);
 
 /* #############               EXTRA FUNCTIONS              ################
 ############################################################################ */
-int	ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

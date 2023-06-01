@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 17:22:37 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/01 11:54:47 by fbosch           ###   ########.fr       */
+/*   Created: 2023/06/01 11:50:29 by fbosch            #+#    #+#             */
+/*   Updated: 2023/06/01 11:54:53 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_numbers
+void	free_memory_array_string(char **arr, int len)
 {
-	int					value;
-	struct s_numbers	*next;
-}	t_numbers;
+	int	i;
 
-int		check_arguments(int argc, char **argv);
-void	free_memory_array_string(char **arr, int len);
-
-#endif
+	if (!arr)
+		return ;
+	i = 0;
+	while (i < len)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free (arr);
+}
