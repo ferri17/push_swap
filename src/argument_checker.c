@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 11:49:21 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/01 13:53:07 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/01 21:29:51 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static int	check_int(char *s_num)
 	while (*s_num >= '0' && *s_num <= '9')
 	{
 		result = result * 10 + *s_num - '0';
-		if ((sign == 1 && result > INT_MAX) || (sign == -1 && result > -(long int)INT_MIN))
+		if ((sign == 1 && result > INT_MAX)
+			|| (sign == -1 && result > -(long int)INT_MIN))
 			return (-1);
 		s_num++;
 	}
@@ -92,7 +93,7 @@ int	check_arguments(int argc, char **argv)
 	len = 0;
 	if (argc == 2)
 	{
-		words = ft_split (argv[1], ' ');
+		words = ft_split(argv[1], ' ');
 		if (!words)
 			return (-1);
 		len = 0;

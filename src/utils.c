@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_memory.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 11:50:29 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/01 19:29:53 by fbosch           ###   ########.fr       */
+/*   Created: 2023/06/01 19:23:06 by fbosch            #+#    #+#             */
+/*   Updated: 2023/06/01 21:34:02 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
 
-void	free_memory_array_string(char **arr, int len)
+int	ft_array_len(char **arr)
 {
 	int	i;
 
-	if (!arr)
-		return ;
 	i = 0;
-	while (i < len)
-	{
-		free(arr[i]);
+	while (arr[i])
 		i++;
-	}
-	free (arr);
+	return (i);
 }
