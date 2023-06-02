@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:21:25 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/01 21:31:30 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/02 13:57:27 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,17 @@ void	ft_lstclear_stack(t_num **lst)
 			*lst = tmp;
 		}
 	}
+}
+
+int	ft_lstsize_stack(t_num *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

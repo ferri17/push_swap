@@ -6,7 +6,7 @@
 #    By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 19:36:01 by fbosch            #+#    #+#              #
-#    Updated: 2023/06/01 20:15:40 by fbosch           ###   ########.fr        #
+#    Updated: 2023/06/02 12:25:50 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ NAME = push_swap
 LIBFT = libft.a
 LIBFT_DIR = libft/
 
-SRC = main.c argument_checker.c free_memory.c list_utils.c utils.c
+SRC = main.c argument_checker.c free_memory.c list_utils.c utils.c\
+stack_movements.c
 SRC_DIR = src/
 
 INCLUDE_DIR = include/
@@ -36,7 +37,7 @@ DEP = $(OBJ:%.o=%.d)
 DEPENDS =
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 DEPFLAGS = -I$(INCLUDE_DIR) -MMD -MP
 DIR_DUP = mkdir -p $(@D)
 LIBRARY = ar rc
