@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 19:23:06 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/02 17:18:57 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/03 19:54:03 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+
+void	exit_error()
+{
+	ft_putstr_fd("Error\n", 2);
+	exit (0);
+}
 
 int	ft_array_len(char **arr)
 {
@@ -23,13 +29,12 @@ int	ft_array_len(char **arr)
 	return (i);
 }
 
-int	init_stacks(t_num **stack_a, t_num **stack_b, int argc, char **argv)
+int	init_stacks(t_num **stack_a, int argc, char **argv)
 {
 	char	**num_array;
 	t_num	*new;
 	int		i;
-
-	*stack_b = NULL;
+	
 	if (argc == 2)
 	{
 		num_array = ft_split(argv[1], ' ');
@@ -55,15 +60,15 @@ int	init_stacks(t_num **stack_a, t_num **stack_b, int argc, char **argv)
 int	is_sorted(t_num *stack)
 {
 	if (!stack)
-		return (0);
+		return (1);
 	while (stack->next)
 	{
 		if (stack->value < stack->next->value)
 			stack = stack->next;
 		else
-			return (-1);
+			return (0);
 	}
-	return (0);
+	return (1);
 }
 
 void	print_stacks(t_num *stack_a, t_num *stack_b)
@@ -81,5 +86,5 @@ void	print_stacks(t_num *stack_a, t_num *stack_b)
 		ft_printf("%i\n", stack_b->value);
 		stack_b = stack_b->next;
 	}
-	ft_printf("\n################\n");
+	ft_printf("################\n\n\n\n");
 }

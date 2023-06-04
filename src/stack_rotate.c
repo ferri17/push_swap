@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 17:01:50 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/02 17:35:19 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/04 02:50:20 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	rotate_a(t_num **stack_a)
 		*stack_a = (*stack_a)->next;
 		ft_lstlast_stack(*stack_a)->next = temp;
 		temp->next = NULL;
-		ft_printf("ra");
+		ft_printf("ra\n");
 	}
 }
 
@@ -37,7 +37,7 @@ void	rotate_b(t_num **stack_b)
 		*stack_b = (*stack_b)->next;
 		ft_lstlast_stack(*stack_b)->next = temp;
 		temp->next = NULL;
-		ft_printf("rb");
+		ft_printf("rb\n");
 	}
 }
 
@@ -60,5 +60,5 @@ void	rotate_all(t_num **stack_a, t_num **stack_b)
 		ft_lstlast_stack(*stack_b)->next = temp_b;
 		temp_b->next = NULL;
 	}
-	ft_printf("rr");
+	ft_printf("rr\n");
 }

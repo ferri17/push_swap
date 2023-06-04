@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+         #
+#    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 19:36:01 by fbosch            #+#    #+#              #
-#    Updated: 2023/06/02 17:01:16 by fbosch           ###   ########.fr        #
+#    Updated: 2023/06/04 03:31:36 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT = libft.a
 LIBFT_DIR = libft/
 
 SRC = main.c argument_checker.c free_memory.c list_utils.c utils.c\
-stack_swap_push.c stack_rotate.c stack_reverse_rotate.c
+stack_swap_push.c stack_rotate.c stack_reverse_rotate.c sort.c
 SRC_DIR = src/
 
 INCLUDE_DIR = include/
@@ -37,7 +37,7 @@ DEP = $(OBJ:%.o=%.d)
 DEPENDS =
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 DEPFLAGS = -I$(INCLUDE_DIR) -MMD -MP
 DIR_DUP = mkdir -p $(@D)
 LIBRARY = ar rc

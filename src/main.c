@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:21:20 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/02 17:52:16 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/04 02:49:31 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,16 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (check_arguments(argc, argv) < 0)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (-1);
-	}
-	if (init_stacks(&stack_a, &stack_b, argc, argv) < 0)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (-1);
-	}
-	/* print_stacks(stack_a, stack_b);
-	reverse_rotate_a(&stack_b);
-	print_stacks(stack_a, stack_b);
-	push_b(&stack_a, &stack_b);
-	push_b(&stack_a, &stack_b);
-	reverse_rotate_a(&stack_b);
-	print_stacks(stack_a, stack_b);
-	reverse_rotate_a(&stack_b);
-	print_stacks(stack_a, stack_b);
-	reverse_rotate_a(&stack_b);
-	print_stacks(stack_a, stack_b);
+		exit_error();
+	stack_a = NULL;
+	stack_b = NULL;
+	if (init_stacks(&stack_a, argc, argv) < 0)
+		exit_error();
+	//print_stacks(stack_a, stack_b);
+	if (!is_sorted(stack_a))
+		sort_stack(&stack_a, &stack_b);
+	//print_stacks(stack_a, stack_b);
 	ft_lstclear_stack(&stack_a);
-	ft_lstclear_stack(&stack_b); */
+	ft_lstclear_stack(&stack_b);
 	return (0);
 }
