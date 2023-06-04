@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:22:37 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/04 03:53:12 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/04 16:43:40 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ void	reverse_rotate_all(t_num **stack_a, t_num **stack_b);
 void	exit_error();
 void	sort_stack(t_num **stack_a, t_num **stack_b);
 void	sort_5(t_num **stack_a, t_num **stack_b);
+void	sort_all(t_num **stack_a, t_num **stack_b);
+
 
 #endif

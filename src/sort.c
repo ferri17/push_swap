@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:42:29 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/04 03:52:51 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/04 19:56:14 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,38 @@ void	sort_5(t_num **stack_a, t_num **stack_b)
 		swap_a(stack_a);
 }
 
+void	sort_all(t_num **stack_a, t_num **stack_b)
+{
+	t_num *temp;
+	int size;
+	int lowest;
+	int	i;
+	
+	size = ft_lstsize_stack(*stack_a);
+	while (size > 1)
+	{
+		temp = *stack_a;
+		lowest = get_lowest_value(temp);
+		i = 0;
+		while (temp->value != lowest)
+		{
+			temp = temp->next;
+			i++;
+		}
+		while ((*stack_a)->value != lowest)
+		{
+			if (i < size / 2)
+				rotate_a(stack_a);
+			else
+				reverse_rotate_a(stack_a);
+		}
+		push_b(stack_a, stack_b);
+		size = ft_lstsize_stack(*stack_a);
+	}
+	while (*stack_b)
+		push_a(stack_a, stack_b);
+}
+
 void	sort_stack(t_num **stack_a, t_num **stack_b)
 {
 	int size;
@@ -100,4 +132,6 @@ void	sort_stack(t_num **stack_a, t_num **stack_b)
 		swap_a(stack_a);
 	else if (size >= 3 && size <= 5)
 		sort_5(stack_a, stack_b);
+	else
+		sort_all(stack_a, stack_b);
 }
