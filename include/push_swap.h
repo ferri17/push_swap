@@ -3,21 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:22:37 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/04 16:43:40 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/14 21:23:55 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+
 typedef struct s_number
 {
 	int					value;
 	struct s_number		*next;
 }	t_num;
+
+typedef struct s_moves
+{
+	int	ra;
+	int	r_ra;
+	int	rb;
+	int	r_rb;
+	int	rall;
+	int	r_rall;
+}	t_moves;
 
 int		check_arguments(int argc, char **argv);
 void	free_memory_array_string(char **arr, int len);
