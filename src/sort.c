@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:42:29 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/04 19:56:14 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/14 03:25:33 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,36 @@ void	sort_all(t_num **stack_a, t_num **stack_b)
 		push_a(stack_a, stack_b);
 }
 
+int	find_best_move(t_num **stack_a, t_num **stack_b)
+{
+
+}
+
+void	sort_b_till_3(t_num **stack_a, t_num **stack_b)
+{
+	int		nb;
+	t_num	*tmp;
+
+	while (ft_lstsize_stack(*stack_a) > 3)
+	{
+		tmp = *stack_a;
+		nb = find_best_move(stack_a, stack_b);
+		do_best_move(stack_a, stack_b, nb);
+	}
+}
+void	sort_all_test(t_num **stack_a, t_num **stack_b)
+{
+	if (ft_lstsize_stack(*stack_a) > 3)
+		push_b(stack_a, stack_b);
+	if (ft_lstsize_stack(*stack_a) > 3)
+		push_b(stack_a, stack_b);
+	if (ft_lstsize_stack(*stack_a) > 3)
+		sort_b_till_3(stack_a, stack_b);
+	sort_5(stack_a, stack_b); //It will have to be changed to sort_3 when it all works, sort_5 can be deleted
+	sort_a_to_b(stack_a, stack_b);
+	clean_a(stack_a);
+}
+
 void	sort_stack(t_num **stack_a, t_num **stack_b)
 {
 	int size;
@@ -133,5 +163,5 @@ void	sort_stack(t_num **stack_a, t_num **stack_b)
 	else if (size >= 3 && size <= 5)
 		sort_5(stack_a, stack_b);
 	else
-		sort_all(stack_a, stack_b);
+		sort_all_test(stack_a, stack_b);
 }
