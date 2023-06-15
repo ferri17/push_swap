@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
+#    By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 19:36:01 by fbosch            #+#    #+#              #
-#    Updated: 2023/06/04 03:31:36 by fbosch           ###   ########.fr        #
+#    Updated: 2023/06/15 19:16:43 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIBFT = libft.a
 LIBFT_DIR = libft/
 
 SRC = main.c argument_checker.c free_memory.c list_utils.c utils.c\
-stack_swap_push.c stack_rotate.c stack_reverse_rotate.c sort.c
+stack_swap_push.c stack_rotate.c stack_reverse_rotate.c sort.c sort2.c\
+sort_utils.c sort_utils2.c
 SRC_DIR = src/
 
 INCLUDE_DIR = include/

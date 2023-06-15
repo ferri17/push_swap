@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 19:23:06 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/03 19:54:03 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/15 19:18:56 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void	exit_error()
+void	exit_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit (0);
@@ -34,7 +34,7 @@ int	init_stacks(t_num **stack_a, int argc, char **argv)
 	char	**num_array;
 	t_num	*new;
 	int		i;
-	
+
 	if (argc == 2)
 	{
 		num_array = ft_split(argv[1], ' ');

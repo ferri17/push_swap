@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 17:21:20 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/15 19:13:06 by fbosch           ###   ########.fr       */
+/*   Created: 2023/06/15 19:14:11 by fbosch            #+#    #+#             */
+/*   Updated: 2023/06/15 19:18:22 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	find_index(t_num *stack, int nb)
 {
-	t_num	*stack_a;
-	t_num	*stack_b;
+	int	index;
 
-	if (argc < 2)
-		return (0);
-	if (check_arguments(argc, argv) < 0)
-		exit_error();
-	stack_a = NULL;
-	stack_b = NULL;
-	if (init_stacks(&stack_a, argc, argv) < 0)
-		exit_error();
-	if (!is_sorted(stack_a))
-		sort_stack(&stack_a, &stack_b);
-	ft_lstclear_stack(&stack_a);
-	ft_lstclear_stack(&stack_b);
-	return (0);
+	index = 0;
+	while (stack)
+	{
+		if (stack->value == nb)
+			return (index);
+		index++;
+		stack = stack->next;
+	}
+	return (-1);
+}
+
+void	init_moves(t_moves *move)
+{
+	move->ra = 0;
+	move->r_ra = 0;
+	move->rb = 0;
+	move->r_rb = 0;
+	move->rall = 0;
+	move->r_rall = 0;
 }

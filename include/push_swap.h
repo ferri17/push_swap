@@ -6,13 +6,12 @@
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:22:37 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/14 21:23:55 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/15 19:17:48 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 
 typedef struct s_number
 {
@@ -53,10 +52,18 @@ void	rotate_all(t_num **stack_a, t_num **stack_b);
 void	reverse_rotate_a(t_num **stack_a);
 void	reverse_rotate_b(t_num **stack_b);
 void	reverse_rotate_all(t_num **stack_a, t_num **stack_b);
-void	exit_error();
+void	exit_error(void);
 void	sort_stack(t_num **stack_a, t_num **stack_b);
-void	sort_5(t_num **stack_a, t_num **stack_b);
-void	sort_all(t_num **stack_a, t_num **stack_b);
-
+int		get_highest_value(t_num *stack);
+int		get_lowest_value(t_num *stack);
+int		find_target_smaller(t_num *stack, int nb);
+int		find_target_bigger(t_num *stack, int nb);
+int		find_number_from_index(t_num *stack, int index);
+int		find_index(t_num *stack, int nb);
+void	init_moves(t_moves *move);
+void	optimise_moves(t_moves *move);
+int		calculate_moves(t_num *stack_a, t_num *stack_b, int nb, t_moves *move);
+void	do_best_move(t_num **stack_a, t_num **stack_b, t_moves *move);
+int		find_best_move(t_num *stack_a, t_num *stack_b, t_moves *move);
 
 #endif
