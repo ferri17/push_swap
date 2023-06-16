@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 11:49:21 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/01 21:29:51 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/16 13:24:23 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	check_arguments(int argc, char **argv)
 	if (argc == 2)
 	{
 		words = ft_split(argv[1], ' ');
-		if (!words)
+		if (!words || !words[0])
 			return (-1);
 		len = 0;
 		while (words[len])
