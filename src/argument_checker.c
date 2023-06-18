@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   argument_checker.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 11:49:21 by fbosch            #+#    #+#             */
-/*   Updated: 2023/06/16 13:24:23 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/06/18 17:35:44 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ static int	check_words(char **words, int len)
 	int	j;
 
 	i = 0;
+	if (len == 0)
+		return (-1);
 	while (i < len)
 	{
 		j = 0;
@@ -94,7 +96,7 @@ int	check_arguments(int argc, char **argv)
 	if (argc == 2)
 	{
 		words = ft_split(argv[1], ' ');
-		if (!words || !words[0])
+		if (!words)
 			return (-1);
 		len = 0;
 		while (words[len])
